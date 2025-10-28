@@ -8,7 +8,7 @@ namespace NamingExamples
     ///     Classes and Structs are pascal cased regardless of the access modifier.
     ///     The only things that dont have a blank line separating them are private fields
     /// </summary>
-    public class ClassesAreAlwaysPascalCased
+    public class ClassesAreAlwaysPascalCased : IInterfaceStartsWithI
     {
         #region "use regions sparingly"
 
@@ -56,8 +56,9 @@ namespace NamingExamples
         /// <returns></returns>
         internal string SmashTogetherThisClassesMembers()
         {
-            return $"{CONSTANTS_CAN_BE_ALL_UPPER_UNDERSCORED}{_fieldsShouldBeUnderscoreCamelCased}{ConstantsCanBePascalCasedAlso}" +
+            var returnValue = $"{CONSTANTS_CAN_BE_ALL_UPPER_UNDERSCORED}{_fieldsShouldBeUnderscoreCamelCased}{ConstantsCanBePascalCasedAlso}" +
                 $"_{_initializeFieldsInTheCtorWhenPossible}_{PropertiesArePascalCased.Count}";
+            return returnValue;
         }
 
         /// <summary>
@@ -70,5 +71,10 @@ namespace NamingExamples
             return returnValue;
         }
 
+        /// <inheritdoc />
+        public int CalculateSomething()
+        {
+            return 1 + 1;
+        }
     }
 }
